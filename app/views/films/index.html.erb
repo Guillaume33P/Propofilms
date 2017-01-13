@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="titre">PROPOSITIONS DE FILMS</h1>
+
+<table>
+  <thead>
+     <tr>
+      <th><img class="nom" src="http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/122010/nom.gif?itok=4qmL04Nh"/></th>
+      <th><img class="synopsis" src="http://onceuponanalphabooks.files.wordpress.com/2014/08/synopsis.jpeg"></th>
+      <th><img class="note" src="http://idata.over-blog.com/0/13/56/66/Photos-22/images-copie-65.jpg"/></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @films.each do |film| %>
+      <tr>
+        <td><%= film.nom %></td>
+        <td><%= film.synopsis %></td>
+        <td><%= film.note %></td>
+        <td><%= link_to 'Show', film %></td>
+        <td><%= link_to 'Edit', edit_film_path(film) %></td>
+        <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Film', new_film_path %>
